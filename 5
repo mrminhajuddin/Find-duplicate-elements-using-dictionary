@@ -1,0 +1,13 @@
+# Method 3: Find duplicate indices (where they appear)
+def find_duplicate_indices(lst):
+    indices = {}
+
+    for i, item in enumerate(lst):
+        indices.setdefault(item, []).append(i)
+
+    return {item: idx for item, idx in indices.items() if len(idx) > 1}
+
+# Example
+data = ["a", "b", "a", "c", "b", "a"]
+print(find_duplicate_indices(data))
+# Output: {'a': [0, 2, 5], 'b': [1, 4]}
